@@ -7,7 +7,7 @@ SESSION_CONFIGS = [
     dict(
         name="task_math1",
         display_name="Eksperimen Perilaku Perpajakan Sesi 1 - No Treatment",
-        num_demo_participants=4,
+        num_demo_participants=8,
         app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
                       "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
         task='math',

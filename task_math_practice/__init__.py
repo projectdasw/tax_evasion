@@ -271,7 +271,7 @@ class Game(Page):
 
 
 class Results(Page):
-    timeout_seconds = 10
+    timeout_seconds = 60
 
     @staticmethod
     def vars_for_template(player: Player):

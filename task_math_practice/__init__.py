@@ -29,7 +29,7 @@ def get_task_module(player):
 
 class Constants(BaseConstants):
     name_in_url = "math_practice"
-    players_per_group = 2
+    players_per_group = 4
     num_rounds = 1
 
     instructions_template = __name__ + "/instructions.html"

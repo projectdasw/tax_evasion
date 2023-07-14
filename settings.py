@@ -1,7 +1,7 @@
 from os import environ
 import sys
 
-DEBUG = True
+DEBUG = False
 
 SESSION_CONFIGS = [
     dict(

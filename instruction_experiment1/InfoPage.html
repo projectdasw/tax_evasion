@@ -1,0 +1,30 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{{ block title }}
+    <span hidden>Latihan Eksperimen</span>
+{{ endblock }}
+
+{{ block content }}
+    <div class="jumbotron d-flex flex-column justify-content-center">
+        <div class="panel p-3 mb-3" style="border: 1px solid #D8D8D8; text-align: justify;">
+            <div class="panel-body">
+                <h3 class="m-0 mb-2 text-center">
+                    <strong>Informasi</strong>
+                </h3>
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Partisipasi Anda bersifat <strong><i>sukarela</i></strong>, berusia minimal 18 tahun, dan
+                    merupakan civitas akademik Universitas Gadjah Mada aktif. Di halaman selanjutnya, Anda akan
+                    diarahkan untuk melakukan latihan terlebih dahulu guna mengetahui permainan yang akan Anda lakukan
+                    pada saat eksperimen dilakukan. Selamat mengerjakan latihan eksperimen.
+                </p>
+            </div>
+        </div>
+    </div>
+    <button class="otree-btn-next btn btn-outline-success fs-4">
+        <i class="fa-solid fa-check m-2 mt-0 mb-0"></i>Ya
+    </button>
+{{ endblock }}

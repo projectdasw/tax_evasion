@@ -1,0 +1,31 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{{ block title }}
+    <span hidden>Eksperimen</span>
+{{ endblock }}
+
+{{ block content }}
+    <div class="jumbotron d-flex flex-column justify-content-center">
+        <div class="panel p-3 mb-3" style="border: 1px solid #D8D8D8; text-align: justify;">
+            <div class="panel-body">
+                <h3 class="m-0 mb-2 text-center">
+                    <strong>Informasi</strong>
+                </h3>
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Anda telah menyelesaikan Latihan Soal Aljabar & Latihan Lapor Pendapatan. Seperti yang Anda ketahui
+                    bahwa Eksperimen ini memiliki tahap yang sama seperti latihan yang telah Anda lakukan. Selanjutnya
+                    Anda akan di arahkan menuju Eksperimen yang sesungguhnya. Sebelum mengerjakan Eksperimen ini,
+                    persiapkan diri Anda dan jangan lupa berdo'a. Selamat Mengerjakan Eksperimen.
+                </p>
+            </div>
+            <span class="badge bg-danger fs-5">
+                <span>Mulai Eksperimen dalam hitungan : </span>
+                    <span class="otree-timer__time-left"></span>
+            </span>
+        </div>
+    </div>
+{{ endblock }}

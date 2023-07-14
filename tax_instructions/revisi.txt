@@ -1,0 +1,23 @@
+Dengan mencentang kotak di bawah ini, saya menyatakan bahwa:
+
+1. Saya sudah membaca dan memahami lembar informasi untuk penelitian ini. Saya telah mempertimbangan dengan matang informasi yang saya terima.
+
+2. Saya paham bahwa partisipasi saya bersifat sukarela dan saya bebas untuk mengundurkan diri kapanpun, tanpa perlu memberikan alasan apapun, dan tidak akan memengaruhi hak kesehatan, sosial, pendidikan, dan hukum saya.
+
+3. Saya paham bahwa data saya yang dikumpulkan dalam studi ini akan dilihat oleh peneliti dari Universitas Gadjah Mada dan The University of Warwick. Saya memberikan izin kepada individu-individu tersebut untuk mengakses data saya.
+
+4. Saya paham bahwa data saya mungkin digunakan untuk penelitian di masa depan.
+
+5. Saya setuju untuk berpartisipasi dalam studi ini.
+
+
+
+- tanpa logo ugm
+- tanpa judul "corruption etc"
+- /instruction_experiment1/InstructionPage1/2 -> consent? perlu ada opsi/radio button "Ya" sebelum tombol lanjut
+- /instruction_experiment1/InstructionPage2/3 -> Tidak perlu kalimat pertama "Pada Corruption ... real effort aljabar." tidak perlu kalimat ttg kalkulator. typo "Jumalh ronde". hapus kalimat "Halaman tersebut berisi jumlah seluruh permainan, total jawaban benar, total jawaban salah dan Income yang Anda dapatkan berdasarkan total jawaban benar."
+- /instruction_experiment1/InstructionPage4/5 -> knp setelah penjelasan real effort?
+- /instruction_experiment1/InfoPage/6 -> lembar persetujuan cukup "Ya" saja, tdk perlu menyebutkan ttg latihan
+- /math_practice/BeforeGame/9 -> hapus yg bicara ttg korupsi etc
+- /math1/Game/10 -> hapus kalimat ttg kalkulator
+- /pay_random_round2/MyPage/21 -> apa ini?

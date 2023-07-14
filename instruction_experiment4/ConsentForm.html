@@ -1,0 +1,51 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{{ block title }}
+    <span hidden>Lembar Persetujuan</span>
+{{ endblock }}
+
+{{ block content }}
+    <div class="jumbotron d-flex flex-column justify-content-center">
+        <div class="d-flex flex-row mb-4">
+            <span class="d-flex flex-column mt-3 fs-4">
+                <span>Lembar Persetujuan</span>
+            </span>
+        </div>
+        <div class="panel p-3 mb-3" style="border: 1px solid #D8D8D8; text-align: justify;">
+            <div class="panel-body">
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Dengan mencentang kotak di bawah ini, saya menyatakan bahwa:
+                    <ol>
+                        <li>
+                            Saya sudah membaca dan memahami lembar informasi untuk penelitian ini. Saya telah
+                            mempertimbangan dengan matang informasi yang saya terima.
+                        </li>
+                        <li>
+                            Saya paham bahwa partisipasi saya bersifat sukarela dan saya bebas untuk mengundurkan diri
+                            kapanpun, tanpa perlu memberikan alasan apapun, dan tidak akan memengaruhi hak kesehatan,
+                            sosial, pendidikan, dan hukum saya.
+                        </li>
+                        <li>
+                            Saya paham bahwa data saya yang dikumpulkan dalam studi ini akan dilihat oleh peneliti dari
+                            Universitas Gadjah Mada. Saya memberikan izin kepada individu-individu tersebut untuk
+                            mengakses data saya.
+                        </li>
+                        <li>
+                            Saya paham bahwa data saya mungkin digunakan untuk penelitian di masa depan.
+                        </li>
+                        <li>
+                            Saya setuju untuk berpartisipasi dalam studi ini.
+                        </li>
+                    </ol>
+                </p>
+            </div>
+        </div>
+    </div>
+    <button class="otree-btn-next btn btn-outline-success fs-4">
+        <i class="fa-solid fa-check m-2 mt-0 mb-0"></i>Ya
+    </button>
+{{ endblock }}

@@ -1,0 +1,49 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{{ block title }}
+    <span hidden>Instruksi</span>
+{{ endblock }}
+
+{{ block content }}
+    <div class="jumbotron d-flex flex-column justify-content-center">
+        <div class="d-flex flex-row mb-4">
+            <span class="d-flex flex-column mt-3 fs-4">
+                <span>Instruksi Eksperimen</span>
+            </span>
+        </div>
+        <div class="panel p-3 mb-3" style="border: 1px solid #D8D8D8; text-align: justify;">
+            <div class="panel-body">
+                <h3 class="m-0 mb-2">
+                    <strong>2. Durasi Eksperimen</strong>
+                </h3>
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Kami mengestimasi penyelesaian rangkaian eksperimen ini selama lebih-kurang 120 menit. Kami harap
+                    Anda menyelesaikan eksperimen ini secara mandiri berdasarkan preferensi Anda sendiri karena akan
+                    menentukan pembayaran yang Anda peroleh! Anda dapat menghubungi kami setiap saat selama eksperimen
+                    jika ada hal-hal yang perlu Anda tanyakan mengenai prosedur eksperimen ini.
+                </p>
+            </div>
+            <div class="panel-body">
+                <h3 class="m-0 mb-2">
+                    <strong>3. Pembayaran</strong>
+                </h3>
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Satu ronde dari 30 ronde akan diacak melalui distribusi seragam untuk menjadi basis pembayaran
+                    Anda. Poin yang Anda peroleh dari ronde tersebut dikalikan dengan Rp100. Pembayaran ini akan
+                    ditambah dengan uang kehadiran Rp10.000.
+                </p>
+                <img src="{{ static 'images/distribusi-ambigu-angka-biner.png' }}" class="mt-5 mb-5" />
+                <img src="{{ static 'images/distribusi-seragam-angka-biner.png' }}" class="mb-5" />
+                <img src="{{ static 'images/distribusi-angka-1-100.png' }}" class="mb-5" />
+                <img src="{{ static 'images/distribusi-seragam-1-100.png' }}" />
+            </div>
+        </div>
+    </div>
+    <button class="otree-btn-next btn btn-outline-primary fs-4">
+        Lanjut<i class="fa-solid fa-hand-point-right m-2 mt-0 mb-0"></i>
+    </button>
+{{ endblock }}

@@ -1,0 +1,42 @@
+Perhitungan Tax Rate dengan Conditional
+a. (Income - Free Tax) <= 500
+b. 500 < (Income - Free Tax) <= 1000
+c. (Income - Free Tax) > 1000
+
+Contoh dari Rencana Eksperimen
+Income 1500
+
+Perhitungan untuk penentuan Tax Rate => Income - Free Tax
+Free Tax => 200
+1500 - 200 = 1300
+--------------------------------------------
+Kondisi 1 => Jika 1300 <= 500, maka 1300 * 5% = 65
+Berarti tidak masuk dalam Kondisi 1 karena Income After Free Tax lebih dari 500
+
+Kondisi 2 => Jika 500 < 1500 <= 1000, maka
+(500 pertama * 5%) + ((1300 - 500) * 15%) = 25 + (800 * 15%) = 25 + 120 = 145
+
+Kondisi 3 => Jika 1300 > 1000, maka
+(500 pertama * 5%) + ((1300 - 500) * 15%) + (((1300 - 500) - 500) * 25%) = 25 + (800 * 15%) + (300 * 25%) = 25 + 120 + 75 = 220
+
+Contoh dari Rencana Eksperimen ini telah dipraktekkan dan hasilnya masuk di Kondisi 2 => ini sudah benar
+----------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+Contoh Kasus
+Income 5000
+
+Perhitungan untuk penentuan Tax Rate => Income - Free Tax
+Free Tax => 200
+5000 - 200 = 4800
+--------------------------------------------
+Kondisi 1 => Jika 4800 <= 500, maka 4800 * 5% = 240
+Berarti tidak masuk dalam Kondisi 1 karena Income After Free Tax lebih dari 500
+
+Kondisi 2 => Jika 500 < 4800 <= 1000, maka
+(500 pertama * 5%) + ((4800 - 500) * 15%) = 25 + 645 = 670
+
+Kondisi 3 => Jika 4800 > 1000, maka
+(500 pertama * 5%) + ((4800 - 500) * 15%) + (((4800 - 500) - 500) * 25%) = 25 + (4300 * 15%) + (3800 * 25%) = 25 + 645 + 950 = 1620
+
+Contoh kasus diatas telah dipraktekkan dan hasilnya masuk dalam Kondisi 2 yang seharusnya hasilnya masuk di Kondisi 3 karena hitungan akhir masih lebih dari 1000

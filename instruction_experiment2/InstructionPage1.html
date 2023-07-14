@@ -1,0 +1,205 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{{ block title }}
+    <span hidden>Instruksi</span>
+{{ endblock }}
+
+{{ block content }}
+    <div class="jumbotron d-flex flex-column justify-content-center">
+        <div class="d-flex flex-row mb-4">
+            <span class="d-flex flex-column mt-3 fs-4">
+                <span>Instruksi Eksperimen</span>
+            </span>
+        </div>
+        <div class="panel p-3 mb-3" style="border: 1px solid #D8D8D8; text-align: justify;">
+            <div class="panel-body">
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Selamat datang dan terima kasih telah bersedia untuk mengikuti eksperimen ini. Mohon baca dengan
+                    seksama instruksi ini agar Anda dapat memahami apa yang harus Anda lakukan di dalam eksperimen ini.
+                    Eksperimen ini memberikan Anda kesempatan untuk memperoleh uang tunai yang akan dibayarkan segera
+                    setelah Anda menyelesaikan rangkaian eksperimen ini. Besaran uang yang akan Anda peroleh bergantung
+                    pada apa yang Anda dan rekan Anda lakukan di dalam eksperimen ini. Oleh karenanya, mohon untuk
+                    serius dalam menyelesaikannya sesuai dengan preferensi Anda. Uang yang Anda peroleh dalam
+                    eksperimen ini akan ditambahkan dengan uang kehadiran sebesar Rp10.000.
+                </p>
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Anda juga akan diminta untuk mengisi kuesioner pendek setelah menyelesaikan tahapan eksperimen.
+                    Eksperimen ini telah mendapatkan persetujuan dari Komisi Etik Fakultas Kedokteran, Kesehatan
+                    Masyarakat, dan Keperawatan (FKKMK) UGM. Lembar persetujuan terinformasi tersedia di halaman
+                    sebelumnya dan telah Anda setujui untuk mengikuti eksperimen ini.
+                </p>
+            </div>
+            <div class="panel-body">
+                <h3 class="m-0 mb-2">
+                    <strong>1. Eksperimen</strong>
+                </h3>
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Eksperimen ini ditujukan untuk mendapatkan informasi mengenai perilaku dalam pengakuan pajak.
+                    Anda akan menghadapi 30 ronde permainan dimana masing-masing ronde akan terdiri atas dua tahapan.
+                    Semua ronde memiliki tipe permainan yang sama dengan situasi yang berbeda. Berikut adalah
+                    penjelasan secara rinci:
+                </p>
+                <table class="table table-bordered" style="border: 1px solid #000;">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Tahap Pertama</strong>
+                            </td>
+                            <td>
+                                Di tahap ini, Anda akan memainkan <b><i>real effort algebraic game</i></b> secara
+                                individu dengan menjawab pertanyaan berhitung sederhana (tambah-kurang-kali-bagi).
+                                Anda memiliki waktu <b>1 menit</b> untuk menjawab sebanyak-banyaknya yang Anda bisa
+                                di tahap ini. Anda akan mendapatkan <b>100 poin</b> untuk masing-masing jawaban benar
+                                yang akan menjadi pendapatan Anda di dalam ronde ini. Mohon untuk catat pendapatan yang
+                                Anda peroleh di masing-masing ronde.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Tahap Kedua</strong>
+                            </td>
+                            <td>
+                                Di tahap ini, Anda akan tergabung ke dalam sebuah <b>grup berisikan 4 orang</b>
+                                (termasuk Anda) dan grup ini akan terus diacak sepanjang 30 ronde. Anda tidak diberi
+                                tahu dengan siapa Anda akan tergabung di grup tersebut. Di tahap ini, Anda diminta
+                                untuk <b>melaporkan pendapatan</b> yang telah Anda peroleh dari tahap pertama untuk
+                                kemudian menjadi objek pajak yang akan dikenakan. Pajak yang terkumpul dari seluruh
+                                pemain dalam sebuah grup akan dikalikan dengan sebuah <b>“tingkat pengembalian”</b>
+                                atau <i>“return of tax”</i> untuk kemudian <b>didistribusikan kembali</b> kepada
+                                seluruh pemain di grup tersebut secara merata. Tingkat pengembalian ini akan
+                                diinformasikan kepada Anda di tahap kedua ini.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Pengenaan Pajak</strong>
+                            </td>
+                            <td>
+                                Eksperimen ini mengenakan sistem <b>pajak progresif</b>. Pendapatan yang Anda laporkan
+                                pada tahap kedua akan dikurangi <b>“Pendapatan Tidak Kena Pajak”</b> (PTKP) untuk
+                                menjadi objek penghitungan pajak atau <b>“Pendapatan Kena Pajak”</b> (PKP). Besaran
+                                PTKP adalah 200 poin, sedangkan tingkat pajak adalah sebagai berikut:
+                                <ol type="I">
+                                    <li>
+                                        5% untuk 500 poin pertama PKP.
+                                    </li>
+                                    <li>
+                                        15 % untuk 501 poin sampai 1.000 poin PKP selanjutnya.
+                                    </li>
+                                    <li>
+                                        25% untuk lebih dari 1.000 poin PKP selanjutnya.
+                                    </li>
+                                </ol>
+                                Contoh pengenaan pajak jika seseorang mendapatkan 2.000 poin dari tahap pertama di
+                                sebuah ronde adalah sebagai berikut:
+                                <ol type="I">
+                                    <li>
+                                        PKP: 2.000 – 200 = 1.800 poin PKP.
+                                    </li>
+                                    <li>
+                                        Dari 1.800 poin PKP tersebut, 500 poin x 5% = 25 poin pajak ditanggung;
+                                        sisa 1.300 poin PKP.
+                                    </li>
+                                    <li>
+                                        Dari 1.300 poin PKP tersebut, 1.000 poin x 15% = 150 poin pajak ditanggung;
+                                        sisa 300 poin.
+                                    </li>
+                                    <li>
+                                        Dari 300 poin PKP tersebut, 300 x 25% = 75 poin pajak ditanggung.
+                                    </li>
+                                    <li>
+                                        Total pajak untuk pendapatan sebesar 2.000 poin adalah: 25+150+75 = 250 poin.
+                                    </li>
+                                    <li>
+                                        Pendapatan sisa Anda dari ronde tersebut adalah 1.750.
+                                    </li>
+                                </ol>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Proses Audit dan Tingkat Pengembalian</strong>
+                            </td>
+                            <td>
+                               Proses <b>audit dikenakan secara acak</b> melalui distribusi ambigu (lihat figur
+                                Distribusi Ambigu Angka Biner sebagai ilustrasi) kepada setiap orang. Implementasi ini
+                                adalah mengambil <b>kemungkinan biner</b> ‘Ya’ dan ‘Tidak’ untuk penentuan apakah Anda
+                                akan menjadi subjek audit pajak. Tingkat pengembalian pajak akan diinformasikan di
+                                bagian atas halaman pada Tahap Kedua sebuah ronde. Anda akan menghadapi tiga tipe
+                                tingkat pengembalian pajak di sepanjang 30 ronde (masing-masing tipe terdapat di 10
+                                ronde). Berikut adalah <b>tiga tipe tingkat pengembalian pajak</b> dalam eksperimen
+                                ini:
+                                <ol type="i">
+                                    <li>
+                                        Tingkat pengembalian rendah: 75% s.d 100% dari pajak terkumpul.
+                                    </li>
+                                    <li>
+                                        Tingkat pengembalian menengah: 90% s.d 110% dari pajak terkumpul.
+                                    </li>
+                                    <li>
+                                        Tingkat pengembalian tinggi: 100% s.d 125% dari pajak terkumpul.
+                                    </li>
+                                </ol>
+                                Tingkat pengembalian pajak diambil secara acak melalui distribusi ambigu (dengan
+                                rentang angka di masing-masing tipe) untuk dikalikan dengan jumlah pajak terkumpul
+                                dari suatu grup. Hasil penghitungan pengembalian pajak ini kemudian didistribusikan
+                                secara merata bagi semua orang di dalam grup.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Hukuman terhadap Ketidakjujuran Pelaporan</strong>
+                            </td>
+                            <td>
+                                Anda akan mendapatkan hukuman jika Anda: i) mendapat proses audit, dan ii) diketahui
+                                melaporkan pendapatan tidak sesuai yang telah Anda peroleh. Dalam hal ini, Anda akan
+                                dikenakan denda sebesar 50% dari selisih pendapatan yang tidak Anda laporkan. Denda ini
+                                akan langsung dipotongkan secara otomatis di ronde tersebut.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Kemungkinan Terjadinya Korupsi Pajak</strong>
+                            </td>
+                            <td>
+                                Terdapat <strong>kemungkinan pajak Anda akan dikorupsi</strong> oleh oknum tidak
+                                bertanggung jawab di dalam eksperimen ini. Rentang kemungkinan korupsi adalah antara 0%
+                                (tidak ada korupsi) sampai dengan 100% (semua pajak terkumpul dikorupsi). Implementasi
+                                korupsi tersebut adalah mengambil angka di rentang tersebut secara acak melalui
+                                distribusi ambigu (lihat figur Distribusi Ambigu Angka 0 – 100 sebagai ilustrasi).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Berapa yang Anda akan Peroleh di Setiap Ronde?</strong>
+                            </td>
+                            <td>
+                                Pendapatan akhir di setiap ronde adalah: i) pendapatan setelah dikurangi pajak,
+                                ii) pembagian dari pajak terkumpul setelah dikalikan tingkat pengembalian, dan iii)
+                                denda jika Anda teraudit tidak melaporkan pendapatan dengan benar. Pendapatan akhir
+                                di setiap ronde akan menjadi basis penentuan pembayaran Anda dalam eksperimen ini.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Catatan Penting</strong>
+                            </td>
+                            <td>
+                                Eksperimenter dipastikan <b>tidak mengetahui</b> keputusan Anda maupun pendapatan Anda
+                                sebelum selesainya sebuah ronde mengacu sistem pencatatan yang diimplementasikan di
+                                dalam sistem komputer.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <button class="otree-btn-next btn btn-outline-primary fs-4">
+        Lanjut<i class="fa-solid fa-hand-point-right m-2 mt-0 mb-0"></i>
+    </button>
+{{ endblock }}

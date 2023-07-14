@@ -1,0 +1,35 @@
+{{ block title }}
+<div class="d-flex flex-column justify-content-center align-items-center jumbotron text-center">
+    <h3 class="mt-3">Terima kasih atas Partisipasi Anda mengikuti Eksperimen</h3>
+    <h3 class="mt-3">Anda mendapatkan uang partisipasi sebesar {{ participant.finalpayment }}</h3>
+</div>
+{{ endblock }}
+{{ block content }}
+    <style>
+        .block-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .block-title span:nth-child(1) {
+            font-size: 25px;
+        }
+    </style>
+    <div class="panel panel-default" style="margin-bottom:10px">
+        <div class="panel-body">
+            <p><strong>Tujuan Eksperimen:</strong></p>
+            <p>Eksperimen ini ditujukan untuk keperluan pelacakan perilaku dalam hal perpajakan di Indonesia.
+                Eksperimen ini meliputi melacak korupsi perpajakan hingga kejujuran dalam melaporkan pajak.
+            </p>
+            <p>
+                <em>
+                    Discalimer: Eksperimen ini tidak untuk dibuat secara convensional,
+                    melainkan untuk keperluan data dukungan yang digunakan sebagai bahan kajian
+                    dalam hal perilaku perpajakan di Indonesia. Data yang masuk dalam ekperimen ini
+                    telah disamarkan dan juga tidak terpublikasi secara bebas.
+                </em>
+            </p>
+        </div>
+    </div>
+{{ endblock }}
+

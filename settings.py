@@ -70,22 +70,7 @@ USE_POINTS = True
 ROOMS = [
     dict(
         name="task_math1",
-        display_name="Eksperimen Perilaku Perpajakan Sesi 1 - No Treatment",
-        participant_label_file='_rooms/participant_labels.txt',
-    ),
-    dict(
-        name="task_math2",
-        display_name="Eksperimen Perilaku Perpajakan Sesi 2 - Corruption Treatment",
-        participant_label_file='_rooms/participant_labels.txt',
-    ),
-    dict(
-        name="task_math3",
-        display_name="Eksperimen Perilaku Perpajakan Sesi 3 - Prefilled Form Treatments",
-        participant_label_file='_rooms/participant_labels.txt',
-    ),
-    dict(
-        name="task_math4",
-        display_name="Eksperimen Perilaku Perpajakan Sesi 4 - Prefilled Form + Corruption Treatment",
+        display_name="Eksperimen",
         participant_label_file='_rooms/participant_labels.txt',
     )
 ]

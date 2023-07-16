@@ -1,8 +1,6 @@
 from os import environ
 import sys
 
-DEBUG = False
-
 SESSION_CONFIGS = [
     dict(
         name="task_math1",
@@ -95,9 +93,8 @@ ROOMS = [
 ADMIN_USERNAME = "admin"
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get("OTREE_ADMIN_PASSWORD")
-DEBUG=False
+DEBUG=True
 AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
-OTREE_PRODUCTION = 1
 
 DEMO_PAGE_TITLE = "Eksperimen Perilaku Perpajakan"
 DEMO_PAGE_INTRO_HTML = """

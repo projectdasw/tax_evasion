@@ -80,7 +80,7 @@ class TaxPage(Page):
     timeout_seconds = 20
 
     form_model = 'player'
-    form_fields = ['laporpendapatan']
+    form_fields = ['lat_laporpendapatan']
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):

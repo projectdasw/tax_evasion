@@ -1,40 +1,16 @@
-# oTree apps
+# Corruption, Confirmation and Tax Evasion: An Experiment Study
 
-Some experimental implementation of games for oTree v5
+Corruption, Confirmation and Tax Evasion: An Experiment Study merupakan sebuah eksperimen dari Universitas Gajah Mada sebagai sarana penelitian guna mengetahui perilaku tingkat kepatuhan para pelaku Wajib Lapor Pajak. Penelitian ini menggunakan responden dari mahasiswa lingkungan Universitas Gajah Mada yang mengacu pada perilaku Wajib Lapor Pajak dan keputusan tingkat kepatuhan perilaku dalam melaporkan Pajak. Responden akan diberlakukan Audit guna mengetahui kecurangan dalam Wajib Lapor Pajak.
 
-## Real-effort tasks
+Dalam penelitian ini menggunakan treatment yang terbagi menjadi 3 kluster yaitu Corruption Treatment, Prefilled Form Treatment & Prefilled Form + Corruption Treatment. Dari ketiga treatment ini ditujukan untuk mengidentifikasi efektivitas korupsi (mendorong tindakan tax evasion) dan prefilled form (mendorong tindak tax compliance).
 
-Games:
-- `transcription`: transcribing of distorted text from image
-- `matrices`: counting symbols in matrix
-- `decoding`: decoding a letters/numbers cipher 
-- `sliders`: moving sliders task
+## Penjelasan Treatment
 
-The task units are referenced as 'puzzles' in docs and code.
+'Corruption Treatment':
+Dalam Corruption Treatment ada probabilitas bahwa pajak yang dilaporkan bisa terjadi korupsi dengan probabilitas sebesar antara 0% (tidak ada korupsi) sampai dengan 100% (terjadi korupsi total).
 
-All games are impemented as single-user, single page apps.
+'Prefilled Form Treatment':
+ Prefilled Form Treatment merupakan fitur yang bersifat statis dengan fungsionalitas menampilkan penghasilan yang telah dilaporkan dan tidak bisa di edit. Namun dalam treatment ini nominalnya tidak sesuai dengan yang diperoleh, bisa jadi lebih kecil atau lebih besar dari penghasilan yang didapat sebagai bentuk realita yang ada pada kondisi pelaopran pajak. Pada treatment ini tidak ada distraksi korupsi.
 
-Common features:
-- live page with infinite iterations (micro-rounds) and timeout
-- generating randomized puzzle on the fly
-- creating images for each puzzle on the fly
-- showing the images on the live page
-- recording outcome of each puzzle in database
-- custom export of all recorded data
-
-Anti-cheating and anti-scripting protection:
-- the puzzles are generated as images, no solution data is even revealed into browser
-- validation of answers on server side
-- `puzzle_delay`: minimal delay between iterations
-- `retry_delay`: minimal delay before next retry after wrong answer 
-
-Configurable features, via session config:
-- `attempts_per_puzzle`: number of attempts allowed to solve puzzle 
-- `max_iterations`: complete round after given number of iterations.
-  (if timeout is also specified for a page, round is terminated by whichever comes first.)
-  
-For sliders:
-- `num_sliders`: total number of sliders
-- `num_columns`: number of columns in grid
-
-More detailed adjustments are available via variables in files `task_something.py`
+ 'Prefilled Form + Corruption Treatment':
+ Pada treatment ini merupakan gabungan dari Prefilled Form & Corruption Treatment yang terdapat distraksi korupsi dengan probabilitas 0% sampai dengan 100% dan fitur prefilled form dalam pelaporan pendapatan. Di sinilah akan dilihat perilaku moralitas apakah responden akan merubah sesuai dengan penghasilan aktualnya atau melakukan hal-hal seperti penghindaran dan penggelapan yang malah mendukung ke arah tindakan korupsi.

@@ -35,7 +35,7 @@ def creating_session(subsession: Subsession):
         player.prefilled_form = int(prefilled_cols['112'])
         player.corrupt = int(corrupt_cols['77'])
         player.audit = bool(int(audit_cols['1']))
-        player.return_tax = int(returntax_cols['97'])
+        player.return_tax = int(returntax_cols['105'])
 
 
 class Group(BaseGroup):

@@ -4,7 +4,7 @@ import csv
 
 class C(BaseConstants):
     NAME_IN_URL = 'tax_compliance_practice4'
-    PLAYERS_PER_GROUP = 2
+    PLAYERS_PER_GROUP = 4
     NUM_ROUNDS = 1
 
 

@@ -4,7 +4,7 @@ Corruption, Confirmation and Tax Evasion: An Experiment Study merupakan sebuah e
 
 Dalam penelitian ini menggunakan treatment yang terbagi menjadi 3 kluster yaitu Corruption Treatment, Prefilled Form Treatment & Prefilled Form + Corruption Treatment. Dari ketiga treatment ini ditujukan untuk mengidentifikasi efektivitas korupsi (mendorong tindakan tax evasion) dan prefilled form (mendorong tindak tax compliance).
 
-# Penjelasan Treatment
+# 'Penjelasan Treatment'
 
 ## Corruption Treatment
 Dalam Corruption Treatment ada probabilitas bahwa pajak yang dilaporkan bisa terjadi korupsi dengan probabilitas sebesar antara 0% (tidak ada korupsi) sampai dengan 100% (terjadi korupsi total).

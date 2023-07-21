@@ -5,11 +5,48 @@ import sys
 SESSION_CONFIGS = [
     dict(
         name="task_math1",
-        display_name="Eksperimen Perilaku Perpajakan (Revisi)",
+        display_name="Eksperimen Perilaku Perpajakan Sesi 1 - No Treatment",
         num_demo_participants=4,
         # app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
         #               "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
-        app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice4"],
+        app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "pay_random_round",
+                      "payment_info"],
+        task='math',
+        attempts_per_puzzle=1,
+    ),
+
+    dict(
+        name="task_math2",
+        display_name="Eksperimen Perilaku Perpajakan Sesi 2 - Corruption Treatment",
+        num_demo_participants=4,
+        # app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
+        #               "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
+        app_sequence=["instruction_experiment2", "task_math_practice", "tax_compliance_practice2", "pay_random_round",
+                      "payment_info"],
+        task='math',
+        attempts_per_puzzle=1,
+    ),
+
+    dict(
+        name="task_math3",
+        display_name="Eksperimen Perilaku Perpajakan Sesi 3 - Prefilled Form Treatment",
+        num_demo_participants=4,
+        # app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
+        #               "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
+        app_sequence=["instruction_experiment3", "task_math_practice", "tax_compliance_practice3", "pay_random_round",
+                      "payment_info"],
+        task='math',
+        attempts_per_puzzle=1,
+    ),
+
+    dict(
+        name="task_math4",
+        display_name="Eksperimen Perilaku Perpajakan Sesi 4 - Prefilled Form + Corruption Treatment",
+        num_demo_participants=4,
+        # app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
+        #               "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
+        app_sequence=["instruction_experiment4", "task_math_practice", "tax_compliance_practice4", "pay_random_round",
+                      "payment_info"],
         task='math',
         attempts_per_puzzle=1,
     )

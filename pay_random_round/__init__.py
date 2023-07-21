@@ -35,7 +35,7 @@ class Results(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         participant = player.participant
-        player.payoff = participant.payment
+        player.payoff = participant.finalpayment
 
 
 page_sequence = [MyPage, Results]

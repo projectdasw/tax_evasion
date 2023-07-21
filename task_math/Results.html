@@ -33,7 +33,9 @@
         {{ if player.round_number == Constants.num_rounds }}
             <p class="alert alert-link p-0">Anda telah menyelesaikan seluruh ronde permainan. Berikut detail :</p>
         {{ else }}
-            <p class="alert alert-link p-0">Anda telah menyelesaikan Ronde 1. Berikut detail :</p>
+            <p class="alert alert-link p-0">
+                Anda telah menyelesaikan Ronde {{ player.round_number }}. Berikut detail :
+            </p>
         {{ endif }}
         <div class="d-flex flex-row" style="justify-content: space-evenly;">
             <div class="d-flex flex-column">

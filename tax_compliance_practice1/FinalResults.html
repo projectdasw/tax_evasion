@@ -48,27 +48,12 @@
         {{ endif }}
 
         {{ if player.audit == 0 }}
-            {{ if player.denda == 0 }}
-                <div class="alert alert-link alert-success p-2">
-                    Anda tidak terkena Audit.<br />
-                    Anda melaporkan Pendapatan dengan jujur.
-                </div>
-            {{ endif }}
-        {{ endif }}
-
-        {{ if player.audit == 0 }}
-            {{ if player.denda > 0 }}
-                <div class="alert alert-link alert-danger p-2">
-                    Anda melaporkan Pendapatan yang tidak sesuai dengan aslinya.<br />
-                    Anda kena Denda sebesar 50%. Denda Anda sebesar {{ player.denda }}
-                </div>
-            {{ endif }}
+            <div class="alert alert-link alert-success p-2">
+                Anda tidak terkena Audit pada ronde ini.
+            </div>
         {{ endif }}
         <div class="alert alert-link alert-success p-2">
             Hasil Pendapatan Akhir Anda setelah Lapor Pendapatan sebesar <strong>{{ player.payoff }}</strong>
         </div>
     </div>
-    <button class="otree-btn-next btn btn-outline-primary mt-4 fs-5">
-        Lanjut<i class="fa-solid fa-hand-point-right" style="margin: 0 0 0 5px;"></i>
-    </button>
 {{ endblock }}

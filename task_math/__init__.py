@@ -269,18 +269,7 @@ class Results(Page):
 
     @staticmethod
     def vars_for_template(player: Player):
-        import random
         participant = player.participant
-
-        # if it's the last round
-        if player.round_number == Constants.num_rounds:
-            random_round = random.randint(1, Constants.num_rounds)
-            participant.selected_round = random_round
-            player_in_selected_round = player.in_round(random_round)
-            participant.payment = player_in_selected_round.pendapatan * 10
-            participant.participant_fee = 10000
-            participant.finalpayment = participant.payment + participant.participant_fee
-
         total_payoffs = player.total_payoff()
         participant.total_payoff = total_payoffs
         return {'total_payoffs': total_payoffs}

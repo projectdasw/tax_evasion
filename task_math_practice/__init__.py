@@ -29,7 +29,7 @@ def get_task_module(player):
 
 class Constants(BaseConstants):
     name_in_url = "math_practice"
-    players_per_group = 4
+    players_per_group = 2
     num_rounds = 1
 
     instructions_template = __name__ + "/instructions.html"
@@ -241,7 +241,7 @@ def play_game(player: Player, message: dict):
 
 
 class WaitPlayer(WaitPage):
-    group_by_arrival_time = True
+    wait_for_all_groups = True
 
 
 class Game(Page):

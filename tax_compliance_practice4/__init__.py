@@ -1,5 +1,6 @@
 from otree.api import *
 import csv
+import random
 
 
 class C(BaseConstants):
@@ -20,27 +21,37 @@ def creating_session(subsession: Subsession):
     prefilled_event = open(__name__ + '/parameter/prefilled_form.csv', encoding='utf-8-sig')
     corrupt_event = open(__name__ + '/parameter/ambiguous_corruption_event.csv', encoding='utf-8-sig')
     audit_event = open(__name__ + '/parameter/audit_event.csv', encoding='utf-8-sig')
-    returntax = open(__name__ + '/parameter/return_tax.csv', encoding='utf-8-sig')
+    returntax = open(__name__ + '/parameter/lower_return.csv', encoding='utf-8-sig')
 
     prefilledform = list(csv.DictReader(prefilled_event))
     corrupt = list(csv.DictReader(corrupt_event))
     audit = list(csv.DictReader(audit_event))
     returntax = list(csv.DictReader(returntax))
+    random.shuffle(returntax)
+    random.shuffle(audit)
+    random.shuffle(corrupt)
+    random.shuffle(prefilledform)
+
+    groups = subsession.get_groups()
+    for i in range(len(groups)):
+        returntax_cols = returntax[i]
+        corrupt_cols = corrupt[i]
+        player = groups[i]
+        player.return_tax = float(returntax_cols['98'])
+        player.corrupt = float(corrupt_cols['77'])
 
     players = subsession.get_players()
     for i in range(len(players)):
         prefilled_cols = prefilledform[i]
-        corrupt_cols = corrupt[i]
         audit_cols = audit[i]
-        returntax_cols = returntax[i]
         player = players[i]
-        player.prefilled_form = int(prefilled_cols['112'])
-        player.corrupt = int(corrupt_cols['77'])
+        player.prefilled_form = float(prefilled_cols['112'])
         player.audit = bool(int(audit_cols['1']))
-        player.return_tax = int(returntax_cols['105'])
 
 
 class Group(BaseGroup):
+    corrupt = models.FloatField(min=0, max=1, initial=0)
+    return_tax = models.FloatField(min=0, max=1, initial=0)
     lat_totalpajak = models.FloatField(min=0, max=1, initial=0)
     lat_bagipajak = models.FloatField(min=0, max=1, initial=0)
 
@@ -54,11 +65,8 @@ class Player(BasePlayer):
     lat_estimasi_pendapatan = models.FloatField(min=0, max=1, initial=0)
     lat_bebanpajak = models.FloatField(min=0, max=1, initial=0)
     audit = models.BooleanField()
-    prefilled_form = models.IntegerField()
-    corrupt = models.IntegerField()
-    return_tax = models.IntegerField()
-    korupsi = models.FloatField(min=0, max=1, initial=0)
-    sisa_tidak_korupsi = models.FloatField(min=0, max=1, initial=0)
+    prefilled_form = models.FloatField(min=0, max=1, initial=0)
+    hasil_korupsi = models.FloatField(min=0, max=1, initial=0)
     denda = models.FloatField(min=0, max=1, initial=0)
 
 
@@ -66,14 +74,15 @@ class Player(BasePlayer):
 def set_jumlahpajak(group: Group):
     players = group.get_players()
     total_pajak = [p.lat_bebanpajak for p in players]
+    if total_pajak == 0:
+        total_pajak = 0.0000001
+    group.lat_totalpajak = sum(total_pajak)
     for player in players:
-        player.korupsi = player.lat_bebanpajak * (player.corrupt / 100)
-        player.sisa_tidak_korupsi = player.lat_bebanpajak - float(player.korupsi)
+        besar_korupsi = player.lat_bebanpajak - (player.lat_bebanpajak * (group.corrupt / 100))
+        player.hasil_korupsi = besar_korupsi
         player.lat_estimasi_pendapatan = player.lat_pendapatanakhir * (player.prefilled_form / 100)
-        if player.corrupt > 0:
-            group.lat_totalpajak = float(sum(total_pajak))
-            group.lat_bagipajak = (group.lat_totalpajak * (player.return_tax / 100)) / C.PLAYERS_PER_GROUP
-
+        group.lat_bagipajak = (group.lat_totalpajak * (group.return_tax / 100) - player.hasil_korupsi) / \
+                              C.PLAYERS_PER_GROUP
 
 # PAGES
 class WaitPlayer(WaitPage):
@@ -97,24 +106,19 @@ class TaxPage(Page):
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
-        hitung_pajak = player.lat_laporpendapatan - 200
+        laporpendapatanbersih = player.lat_laporpendapatan - 200
+        laporpendapatanlebih = player.lat_laporpendapatan - player.lat_pendapatanakhir
 
-        if player.lat_laporpendapatan <= 99:
-            player.lat_pendapatanakhir = 0
-            player.lat_laporpendapatan = 0
-            player.lat_estimasi_pendapatan = 0
+        if laporpendapatanlebih > 500:
             player.lat_bebanpajak = 0
-            player.korupsi = 0
-            player.sisa_tidak_korupsi = 0
-            player.denda = 0
-
-        if hitung_pajak <= 500:
-            player.lat_bebanpajak = hitung_pajak * 0.05
-            if 500 < hitung_pajak <= 1000:
-                player.lat_bebanpajak = ((hitung_pajak - 500) * 0.05) + ((hitung_pajak - 1000) * 0.15)
-                if hitung_pajak > 1000:
-                    player.lat_bebanpajak = ((hitung_pajak - 500) * 0.05) + ((hitung_pajak - 1000) * 0.15) + \
-                                            ((hitung_pajak - 1500) * 0.25)
+        elif 0 < laporpendapatanbersih <= 500:
+            player.lat_bebanpajak = laporpendapatanbersih * 0.05
+        elif 500 < laporpendapatanbersih <= 1000:
+            player.lat_bebanpajak = (500 * 0.05) + ((laporpendapatanbersih - 500) * 0.15)
+        elif laporpendapatanbersih > 1000:
+            player.lat_bebanpajak = (500 * 0.05) + (500 * 0.15) + ((laporpendapatanbersih - 1000) * 0.25)
+        elif laporpendapatanbersih <= 0:
+            player.lat_bebanpajak = 0
 
 
 class TotalPajak(WaitPage):
@@ -127,25 +131,20 @@ class PooledTax(Page):
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
         hasilbagipajak = player.group.lat_bagipajak
-        pres_denda = player.lat_pendapatanakhir * 0.5
+        pres_denda = (player.lat_pendapatanakhir - player.lat_laporpendapatan) * 0.5
+        laporpendapatanlebih = player.lat_laporpendapatan - player.lat_pendapatanakhir
 
-        if player.audit == 1:
-            if player.lat_laporpendapatan < player.lat_pendapatanakhir:
-                player.denda = pres_denda
-
-        if player.audit == 1:
-            if player.lat_laporpendapatan == player.lat_pendapatanakhir:
-                player.denda = 0
-
-        if player.audit == 0:
-            if player.lat_laporpendapatan < player.lat_pendapatanakhir:
-                player.denda = pres_denda
-
-        if player.audit == 0:
-            if player.lat_laporpendapatan == player.lat_pendapatanakhir:
-                player.denda = 0
-
-        player.payoff = (player.lat_pendapatanakhir - player.lat_bebanpajak) + hasilbagipajak - player.denda
+        if laporpendapatanlebih > 0 and player.audit == 1:
+            player.denda = 0
+            player.payoff = player.lat_pendapatanakhir - player.lat_bebanpajak + hasilbagipajak
+        elif player.audit == 1:
+            player.denda = pres_denda
+            player.payoff = player.lat_pendapatanakhir - player.denda - player.lat_bebanpajak + hasilbagipajak
+        elif laporpendapatanlebih > 0 and player.audit == 0:
+            player.denda = 0
+            player.payoff = player.lat_pendapatanakhir - player.lat_bebanpajak + hasilbagipajak
+        elif player.audit == 0:
+            player.payoff = player.lat_pendapatanakhir - player.lat_bebanpajak + hasilbagipajak
 
 
 class FinalResults(Page):
@@ -154,9 +153,11 @@ class FinalResults(Page):
     @staticmethod
     def vars_for_template(player: Player):
         participant = player.participant
+        laporpendapatanlebih = player.lat_laporpendapatan - player.lat_pendapatanakhir
         participant.payment = player.payoff * 100
         participant.participant_fee = 10000
         participant.finalpayment = participant.payment + participant.participant_fee
+        participant.laporlebih = laporpendapatanlebih
 
 
-page_sequence = [WaitPlayer, TaxPage, TotalPajak, PooledTax, FinalResults]
+page_sequence = [WaitPlayer, BeforeTaxPage, TaxPage, TotalPajak, PooledTax, FinalResults]

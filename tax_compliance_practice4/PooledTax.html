@@ -41,12 +41,12 @@
         </div>
         <p>
             Total Pajak yang terkumpul dari grup ini adalah <b>{{ group.lat_totalpajak }}</b>. Return Pembangunan dari
-            pajak adalah <b>{{ player.return_tax }}%</b>. Pembagian Return bagi masing-masing Subjek dalam grup ini
+            pajak adalah <b>{{ group.return_tax }}%</b>. Pembagian Return bagi masing-masing Subjek dalam grup ini
             adalah <b>{{ group.lat_bagipajak }}</b> per Subjek.
         </p>
-        {{ if player.corrupt > 0 }}
+        {{ if group.corrupt > 0 }}
             <div class="alert alert-link alert-danger p-2">
-                Ada Korupsi dari "Koruptor" sebesar <strong>{{ player.corrupt }}%</strong>
+                Ada Korupsi dari "Koruptor" sebesar <strong>{{ group.corrupt }}%</strong>
             </div>
         {{ endif }}
     </div>

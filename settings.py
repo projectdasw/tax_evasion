@@ -9,8 +9,7 @@ SESSION_CONFIGS = [
         num_demo_participants=4,
         # app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
         #               "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
-        app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "pay_random_round",
-                      "payment_info"],
+        app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1"],
         task='math',
         attempts_per_puzzle=1,
     ),
@@ -21,8 +20,7 @@ SESSION_CONFIGS = [
         num_demo_participants=4,
         # app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
         #               "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
-        app_sequence=["instruction_experiment2", "task_math_practice", "tax_compliance_practice2", "pay_random_round",
-                      "payment_info"],
+        app_sequence=["instruction_experiment2", "task_math_practice", "tax_compliance_practice2"],
         task='math',
         attempts_per_puzzle=1,
     ),
@@ -33,8 +31,7 @@ SESSION_CONFIGS = [
         num_demo_participants=4,
         # app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
         #               "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
-        app_sequence=["instruction_experiment3", "task_math_practice", "tax_compliance_practice3", "pay_random_round",
-                      "payment_info"],
+        app_sequence=["instruction_experiment3", "task_math_practice", "tax_compliance_practice3"],
         task='math',
         attempts_per_puzzle=1,
     ),
@@ -45,8 +42,7 @@ SESSION_CONFIGS = [
         num_demo_participants=4,
         # app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
         #               "task_math", "tax_compliance1", "pay_random_round", "payment_info"],
-        app_sequence=["instruction_experiment4", "task_math_practice", "tax_compliance_practice4", "pay_random_round",
-                      "payment_info"],
+        app_sequence=["instruction_experiment4", "task_math_practice", "tax_compliance_practice4"],
         task='math',
         attempts_per_puzzle=1,
     )
@@ -64,7 +60,7 @@ PARTICIPANT_FIELDS = ['is_dropout',
                       'payment',
                       'participant_fee',
                       'finalpayment',
-                      'selected_round']
+                      'laporlebih']
 SESSION_FIELDS = ['params']
 
 # ISO-639 code

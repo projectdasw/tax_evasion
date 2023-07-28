@@ -144,9 +144,11 @@ class FinalResults(Page):
     @staticmethod
     def vars_for_template(player: Player):
         participant = player.participant
+        laporpendapatanlebih = player.lat_laporpendapatan - player.lat_pendapatanakhir
         participant.payment = player.payoff * 100
         participant.participant_fee = 10000
         participant.finalpayment = participant.payment + participant.participant_fee
+        participant.laporlebih = laporpendapatanlebih
 
 
 page_sequence = [WaitPlayer, BeforeTaxPage, TaxPage, TotalPajak, PooledTax, FinalResults]

@@ -1,0 +1,39 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{{ block title }}
+<div class="d-flex flex-row align-items-center mb-4">
+    <span class="d-flex flex-column">
+        <h3>Questionnaire</h3>
+        <span class="d-flex flex-row align-items-center">
+            <span class="badge bg-success fs-5">Kuesioner Eksperimen</span>
+        </span>
+    </span>
+</div>
+{{ endblock }}
+{{ block content }}
+    <div class="d-flex flex-column jumbotron" style="border-radius: 10px; padding: 20px; background-color: #EDEDED;">
+        <span class="alert alert-success alert-link p-2">
+            <i class="fa-solid fa-flag m-2 mt-0 mb-0"></i>
+            Mohon isi kuesioner ini dengan sebenar-benarnya; termasuk platform pembayaran online.
+        </span>
+        <span class="alert alert-danger alert-link p-2">
+            <i class="fa-solid fa-triangle-exclamation m-2 mt-0 mb-0"></i>
+            Eksperimenter tidak akan membagikan data yang Anda berikan kepada siapapun
+        </span>
+        <div class="mt-4">
+            {{ formfields }}
+        </div>
+    </div>
+    <button class="otree-btn-next btn btn-success fs-5 mt-3">
+        <i class="fa-solid fa-list-check m-2 mt-0 mb-0"></i> Submit Kuesioner
+    </button>
+{{ endblock }}

@@ -1,0 +1,41 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{{ block title }}
+<div class="d-flex flex-row align-items-center mb-4">
+    <span class="d-flex flex-column">
+        <h3>Pembayaran Acak</h3>
+        <span class="d-flex flex-row align-items-center">
+            <span class="badge bg-danger fs-5">
+                <span>Waktu Tersisa : </span>
+                    <span class="otree-timer__time-left"></span>
+            </span>
+        </span>
+    </span>
+</div>
+{{ endblock }}
+
+{{ block content }}
+    <div class="jumbotron d-flex flex-column justify-content-center">
+        <div class="panel p-3 mb-3" style="border: 1px solid #D8D8D8; text-align: justify;">
+            <div class="panel-body">
+                <h3 class="m-0 mb-2 text-center">
+                    <strong>Pembayaran Anda</strong>
+                </h3>
+                <p style="font-size: 18px; text-indent: 35px;">
+                    Anda telah menyelesaikan seluruh ronde Soal Aljabar & Lapor Pendapatan. Selanjutnya Anda akan
+                    diarahkan menuju halaman Pembayaran Acak. Ini akan menjadi basis pembayaran Anda setelah
+                    melakukan Ekperimen.
+                </p>
+            </div>
+        </div>
+    </div>
+{{ endblock }}

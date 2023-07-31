@@ -1,0 +1,51 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{{ block title }}
+<div class="d-flex flex-row align-items-center mb-4">
+    <span class="d-flex flex-column">
+        <h3>Lapor Pendapatan</h3>
+        <span class="d-flex flex-row align-items-center">
+            <span class="badge bg-success fs-5">Pooled Tax</span>
+            <span class="badge bg-danger fs-5 m-2 mt-0 mb-0">
+                <span>Waktu Tersisa : </span>
+                    <span class="otree-timer__time-left"></span>
+            </span>
+        </span>
+    </span>
+</div>
+{{ endblock }}
+{{ block content }}
+    <style>
+        span, p {
+        font-size: 18px;
+        }
+    </style>
+    <div class="jumbotron" style="border-radius: 10px; padding: 20px; background-color: #EDEDED;">
+        <div class="alert alert-link alert-success p-2 fs-4">
+            Informasi Return Pajak Pembangunan
+        </div>
+        <div class="alert alert-link alert-primary p-2">
+            Hasil Beban Pajak Anda sebesar {{ player.bebanpajak }}
+        </div>
+        <p>
+            Total Pajak yang terkumpul dari grup ini adalah <b>{{ group.totalpajak }}</b>. Return Pembangunan dari
+            pajak adalah <b>{{ group.return_tax }}%</b>. Pembagian Return bagi masing-masing Subjek dalam grup ini
+            adalah <b>{{ group.bagipajak }}</b> per Subjek.
+        </p>
+        {{ if group.corrupt > 0 }}
+            <div class="alert alert-link alert-danger p-2">
+                Ada Korupsi dari "Koruptor" sebesar <strong>{{ group.corrupt }}%</strong>
+            </div>
+        {{ endif }}
+    </div>
+    {{ next_button }}
+{{ endblock }}

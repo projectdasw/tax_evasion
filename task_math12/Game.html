@@ -1,0 +1,64 @@
+{% block styles  %}
+    <link href="{% static 'real_effort.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{{ block title }}
+<div class="d-flex flex-row mb-4">
+    <span class="d-flex flex-column mt-3 fs-4">
+        <span>Soal Aljabar</span>
+        <span class="d-flex flex-row align-items-center mt-2">
+            <span class="badge bg-primary">Ronde 12</span>
+            <span class="badge bg-success m-2 mt-0 mb-0">
+                <span>Waktu Bermain: </span>
+                <span class="otree-timer__time-left"></span>
+            </span>
+        </span>
+    </span>
+</div>
+{{ endblock }}
+
+{{ block content }}
+<div class="d-flex flex-column">
+    {{ include Constants.instructions_template }}
+    <div class="d-flex flex-column align-items-center mt-3">
+        <h3>Soal Aljabar ke <span id="iter-txt"></span></h3>
+        <h6 class="d-flex flex-row align-items-center m-0">
+            <span class="alert alert-success m-1 mt-0 mb-0 p-2">
+                <i class="fa-solid fa-check"></i>
+                Jawaban Benar: <span id="solved-txt"></span>
+            </span>
+            <span class="alert alert-danger m-1 mt-0 mb-0 p-2">
+                <i class="fa-solid fa-times"></i>
+                Jawaban Salah: <span id="failed-txt"></span>
+            </span>
+        </h6>
+        <img class="captcha m-2" id="captcha-img" style="width: 35%;">
+        <div class="input-group m-1">
+            <input type="{{ input_type }}" id="answer-inp" class="form-control"
+                   placeholder="{{ placeholder }}"
+                   autocorrect="off" autocapitalize="off" spellcheck="false">
+            <button type="button" id="submit-btn" class="btn btn-outline-primary">Kirim</button>
+        </div>
+
+        <p class="warn" id="warning-txt"></p>
+
+        {{ if DEBUG }}
+        <button type="button" id="cheat-btn" class="btn btn-dark">Cheat</button>
+        {{ endif }}
+    </div>
+</div>
+
+{{ endblock }}
+
+{{ block scripts }}
+<script src="{{ static 'task_math.js' }}"></script>
+{{ if DEBUG }}<script src="{{ static 'real_effort_cheating.js' }}"></script>{{ endif }}
+{{ endblock }}

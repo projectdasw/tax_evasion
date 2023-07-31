@@ -30,12 +30,19 @@
         }
     </style>
     <div class="jumbotron" style="border-radius: 10px; padding: 20px; background-color: #EDEDED;">
-        <span class="alert alert-success alert-link p-2">
+        <p class="alert alert-success alert-link p-2">
             <i class="fa-solid fa-flag m-1 mt-0 mb-0"></i>
-            Silahkan masukkan total pendapatan Anda untuk mengetahui beban pajak Anda.
-        </span>
+            Instansi pajak mengestimasi bahwa pendapatan Anda adalah seperti yang tertera di dalam kotak.
+            Silakan edit jika estimasi tersebut tidak sesuai aslinya.
+        </p>
         <div class="mt-4">
-            {{ formfields }}
+            <div class="mb-3 _formfield">
+                <label class="col-form-label" for="id_lat_laporpendapatan">Masukkan Pendapatan Anda</label>
+                <div class="controls">
+                    <input type="text" class="form-control" inputmode="decimal" id="id_lat_laporpendapatan" min="0"
+                           name="lat_laporpendapatan" required="" value="{{ player.lat_estimasi_pendapatan }}">
+                </div>
+            </div>
         </div>
     </div>
 {{ endblock }}

@@ -83,7 +83,7 @@ class WaitPlayer(WaitPage):
 
 
 class BeforeTaxPage(Page):
-    timeout_seconds = 15
+    timeout_seconds = 10
 
     @staticmethod
     def vars_for_template(player: Player):
@@ -95,7 +95,7 @@ class TaxPage(Page):
     timeout_seconds = 20
 
     form_model = 'player'
-    form_fields = ['lat_laporpendapatan']
+    form_fields = ['laporpendapatan']
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):

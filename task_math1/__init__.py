@@ -28,9 +28,9 @@ def get_task_module(player):
 
 
 class Constants(BaseConstants):
-    name_in_url = "math"
+    name_in_url = "math1"
     players_per_group = 4
-    num_rounds = 10
+    num_rounds = 1
 
     instructions_template = __name__ + "/instructions.html"
     captcha_length = 3
@@ -238,8 +238,12 @@ def play_game(player: Player, message: dict):
     raise RuntimeError("unrecognized message from client")
 
 
+class WaitPlayer(WaitPage):
+    wait_for_all_groups = True
+
+
 class Game(Page):
-    timeout_seconds = 60
+    timeout_seconds = 65
     live_method = play_game
 
     @staticmethod
@@ -275,4 +279,4 @@ class Results(Page):
         return {'total_payoffs': total_payoffs}
 
 
-page_sequence = [Game, Results]
+page_sequence = [WaitPlayer, Game, Results]

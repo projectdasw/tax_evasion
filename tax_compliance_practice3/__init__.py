@@ -70,9 +70,7 @@ def set_jumlahpajak(group: Group):
     if total_pajak == 0:
         total_pajak = 0.0000001
     group.lat_totalpajak = sum(total_pajak)
-    for player in players:
-        group.lat_bagipajak = (group.lat_totalpajak * (group.return_tax / 100)) / C.PLAYERS_PER_GROUP
-        player.lat_estimasi_pendapatan = player.lat_pendapatanakhir * (player.prefilled_form / 100)
+    group.lat_bagipajak = (group.lat_totalpajak * (group.return_tax / 100)) / C.PLAYERS_PER_GROUP
 
 
 # PAGES
@@ -81,19 +79,23 @@ class WaitPlayer(WaitPage):
 
 
 class BeforeTaxPage(Page):
-    timeout_seconds = 15
+    timeout_seconds = 10
 
     @staticmethod
     def vars_for_template(player: Player):
         participant = player.participant
         player.lat_pendapatanakhir = participant.total_payoff
 
+    @staticmethod
+    def before_next_page(player: Player, timeout_happened):
+        player.lat_estimasi_pendapatan = player.lat_pendapatanakhir * (player.prefilled_form / 100)
+
 
 class TaxPage(Page):
     timeout_seconds = 20
 
     form_model = 'player'
-    form_fields = ['lat_laporpendapatan']
+    form_fields = ['laporpendapatan']
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):

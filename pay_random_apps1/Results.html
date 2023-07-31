@@ -24,17 +24,24 @@
 {{ endblock }}
 
 {{ block content }}
-    <div class="jumbotron d-flex flex-column justify-content-center">
-        <div class="panel p-3 mb-3" style="border: 1px solid #D8D8D8; text-align: justify;">
-            <div class="panel-body">
-                <h3 class="m-0 mb-2 text-center">
-                    <strong>Pembayaran Anda</strong>
-                </h3>
-                <p style="font-size: 18px; text-indent: 35px;">
-                    Anda telah menyelesaikan Soal Aljabar & Latihan Lapor Pendapatan. Selanjutnya Anda akan diarahkan
-                    menuju halaman Pembayaran Acak. Ini akan menjadi basis pembayaran Anda setelah melakukan Ekperimen.
-                </p>
-            </div>
+    <div class="panel panel-default" style="margin-bottom:10px">
+        <div class="panel-body d-flex flex-column">
+            <span class="alert alert-primary">
+                <strong>Pembayaran Acak</strong>
+            </span>
+            <p>
+                Pembayaran Anda diambil dari <strong>Ronde {{ player.round }}</strong>. Berikut hasil detail dari
+                Ronde tersebut :
+            </p>
+            <p>
+                Income dari <strong>Ronde {{ player.round }}</strong> : <strong>{{ player.potential_payoff }}</strong>
+            </p>
+            <p>
+                Uang Partisipasi : <strong>10000</strong>
+            </p>
+            <p>
+                Pembayaran yang Anda peroleh dari eksperimen ini adalah <b>{{ player.payoff }}</b>
+            </p>
         </div>
     </div>
 {{ endblock }}

@@ -32,7 +32,7 @@ class Player(BasePlayer):
 # FUNCTIONS
 # PAGES
 class InfoPage(Page):
-    timeout_seconds = 20
+    timeout_seconds = 30
 
 
 page_sequence = [InfoPage]

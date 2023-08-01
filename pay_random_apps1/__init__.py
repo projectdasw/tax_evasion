@@ -169,7 +169,7 @@ class MyPage(Page):
 
 
 class Results(Page):
-    pass
+    timeout_seconds = 15
 
 
 page_sequence = [WaitAllPlayer, MyPage, Results]

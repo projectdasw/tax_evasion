@@ -141,7 +141,7 @@ class PooledTax(Page):
 
 
 class FinalResults(Page):
-    # timeout_seconds = 10
+    timeout_seconds = 10
 
     @staticmethod
     def vars_for_template(player: Player):

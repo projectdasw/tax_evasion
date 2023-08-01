@@ -156,7 +156,7 @@ ROOMS = [
 ADMIN_USERNAME = "admin"
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get("OTREE_ADMIN_PASSWORD")
-DEBUG = True
+DEBUG = False
 AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 
 DEMO_PAGE_TITLE = "Eksperimen Perilaku Perpajakan"

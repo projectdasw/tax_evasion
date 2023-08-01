@@ -5,7 +5,7 @@ import random
 
 class C(BaseConstants):
     NAME_IN_URL = 'tax_compliance_practice4'
-    PLAYERS_PER_GROUP = 2
+    PLAYERS_PER_GROUP = 4
     NUM_ROUNDS = 1
 
 
@@ -106,7 +106,7 @@ class TaxPage(Page):
     timeout_seconds = 20
 
     form_model = 'player'
-    form_fields = ['laporpendapatan']
+    form_fields = ['lat_laporpendapatan']
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):

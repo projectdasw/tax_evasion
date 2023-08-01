@@ -5,7 +5,7 @@ import random
 
 class C(BaseConstants):
     NAME_IN_URL = 'tax_compliance_practice2'
-    PLAYERS_PER_GROUP = 2
+    PLAYERS_PER_GROUP = 4
     NUM_ROUNDS = 1
 
 
@@ -95,7 +95,7 @@ class TaxPage(Page):
     timeout_seconds = 20
 
     form_model = 'player'
-    form_fields = ['laporpendapatan']
+    form_fields = ['_latlaporpendapatan']
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
@@ -147,9 +147,6 @@ class FinalResults(Page):
     def vars_for_template(player: Player):
         participant = player.participant
         laporpendapatanlebih = player.lat_laporpendapatan - player.lat_pendapatanakhir
-        participant.payment = player.payoff * 100
-        participant.participant_fee = 10000
-        participant.finalpayment = participant.payment + participant.participant_fee
         participant.laporlebih = laporpendapatanlebih
 
 

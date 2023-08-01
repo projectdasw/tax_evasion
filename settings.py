@@ -21,7 +21,7 @@ SESSION_CONFIGS = [
                       "task_math28", "no_treatment28", "task_math29", "no_treatment29", "task_math30", "no_treatment30",
                       "pay_random_apps1", "questionnaire", "payment_info"],
         task='math',
-        attempts_per_puzzle=1,
+        attempts_per_puzzle=8,
     ),
 
     dict(
@@ -156,7 +156,7 @@ ROOMS = [
 ADMIN_USERNAME = "admin"
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get("OTREE_ADMIN_PASSWORD")
-DEBUG = False
+DEBUG = True
 AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 
 DEMO_PAGE_TITLE = "Eksperimen Perilaku Perpajakan"

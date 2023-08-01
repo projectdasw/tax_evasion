@@ -5,7 +5,7 @@ import random
 
 class C(BaseConstants):
     NAME_IN_URL = 'tax_compliance_practice1'
-    PLAYERS_PER_GROUP = 2
+    PLAYERS_PER_GROUP = 4
     NUM_ROUNDS = 1
 
 
@@ -59,11 +59,11 @@ class Player(BasePlayer):
 # FUNCTIONS
 def set_jumlahpajak(group):
     players = group.get_players()
-    total_pajak = [p.bebanpajak for p in players]
+    total_pajak = [p.lat_bebanpajak for p in players]
     if total_pajak == 0:
         total_pajak = 0.0000001
-    group.totalpajak = sum(total_pajak)
-    group.bagipajak = (group.totalpajak * (group.return_tax / 100)) / C.PLAYERS_PER_GROUP
+    group.lat_totalpajak = sum(total_pajak)
+    group.lat_bagipajak = (group.lat_totalpajak * (group.return_tax / 100)) / C.PLAYERS_PER_GROUP
 
 
 # PAGES
@@ -84,7 +84,7 @@ class TaxPage(Page):
     timeout_seconds = 20
 
     form_model = 'player'
-    form_fields = ['laporpendapatan']
+    form_fields = ['lat_laporpendapatan']
 
     @staticmethod
     def before_next_page(player: Player, timeout_happened):
@@ -130,15 +130,12 @@ class PooledTax(Page):
 
 
 class FinalResults(Page):
-    # timeout_seconds = 10
+    timeout_seconds = 10
 
     @staticmethod
     def vars_for_template(player: Player):
         participant = player.participant
         laporpendapatanlebih = player.lat_laporpendapatan - player.lat_pendapatanakhir
-        participant.payment = player.payoff * 100
-        participant.participant_fee = 10000
-        participant.finalpayment = participant.payment + participant.participant_fee
         participant.laporlebih = laporpendapatanlebih
 
 

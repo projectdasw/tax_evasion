@@ -167,7 +167,7 @@ class PayRandom(Page):
 
 
 class Results(Page):
-    pass
+    timeout_seconds = 10
 
 
 page_sequence = [WaitAllPlayer, MyPage, PayRandom, Results]

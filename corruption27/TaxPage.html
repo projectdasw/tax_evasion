@@ -14,7 +14,7 @@
     <span class="d-flex flex-column">
         <h3>Lapor Pendapatan</h3>
         <span class="d-flex flex-row align-items-center">
-            <span class="badge bg-success fs-5">Ronde 21</span>
+            <span class="badge bg-success fs-5">Ronde 27</span>
             <span class="badge bg-danger fs-5 m-2 mt-0 mb-0">
                 <span>Waktu Tersisa : </span>
                 <span class="otree-timer__time-left"></span>
@@ -29,10 +29,14 @@
         font-size: 18px;
         }
     </style>
-    <div class="jumbotron" style="border-radius: 10px; padding: 20px; background-color: #EDEDED;">
+    <div class="jumbotron d-flex flex-column" style="border-radius: 10px; padding: 20px; background-color: #EDEDED;">
         <span class="alert alert-success alert-link p-2">
             <i class="fa-solid fa-flag m-1 mt-0 mb-0"></i>
             Silahkan masukkan total pendapatan Anda untuk mengetahui beban pajak Anda.
+        </span>
+        <span class="alert alert-success alert-link p-2">
+            <i class="fa-solid fa-flag m-1 mt-0 mb-0"></i>
+            Anda bisa tekan Enter jika yakin atas pelaporan pendapatan Anda atau menunggu sampai waktu selesai.
         </span>
         <div class="mt-4">
             {{ formfields }}

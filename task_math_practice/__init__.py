@@ -5,7 +5,6 @@ from otree.api import *
 
 from .image_utils import encode_image
 
-
 doc = """
 Real-effort tasks. The different tasks are available in task_matrix.py, task_transcription.py, etc.
 You can delete the ones you don't need. 
@@ -28,8 +27,8 @@ def get_task_module(player):
 
 
 class Constants(BaseConstants):
-    name_in_url = "math_practice"
-    players_per_group = 2
+    name_in_url = "task_math_practice"
+    players_per_group = 4
     num_rounds = 1
 
     instructions_template = __name__ + "/instructions.html"
@@ -41,17 +40,16 @@ class Subsession(BaseSubsession):
 
 
 def creating_session(subsession: Subsession):
+    subsession.group_randomly()
     session = subsession.session
     template = dict(
-        retry_delay=1.0, puzzle_delay=0, attempts_per_puzzle=1, attempts_per_puzzle_pilot=10, max_math=None,
+        retry_delay=1.0, puzzle_delay=0, attempts_per_puzzle=1, attempts_per_puzzle_pilot=10, max_iterations=None,
+        max_math=10, max_math2=20, max_math4=40, max_decoding=5, max_decoding2=10, max_decoding4=20, max_math_pilot=1,
+        max_decoding_pilot=1,
     )
     session.params = {}
     for param in template:
         session.params[param] = session.config.get(param, template[param])
-
-
-def creating_session(subsession):
-    subsession.group_randomly()
 
 
 class Group(BaseGroup):
@@ -67,6 +65,7 @@ class Player(BasePlayer):
 
     def total_payoff(self):
         return sum([p.lat_pendapatan for p in self.in_all_rounds()])
+
 # puzzle-specific stuff
 
 
@@ -201,7 +200,7 @@ def play_game(player: Player, message: dict):
             if now < current.response_timestamp + params["retry_delay"]:
                 raise RuntimeError("retrying too fast")
 
-            # undo last update of player progress
+            # undo last updation of player progress
             player.num_trials -= 1
             if current.is_correct:
                 player.num_correct -= 1
@@ -245,7 +244,7 @@ class WaitPlayer(WaitPage):
 
 
 class Game(Page):
-    timeout_seconds = 60
+    timeout_seconds = 65
     live_method = play_game
 
     @staticmethod

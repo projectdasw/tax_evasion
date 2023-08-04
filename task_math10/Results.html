@@ -26,7 +26,7 @@
         }
     </style>
     <div class="jumbotron" style="border-radius: 10px; padding: 20px; background-color: #EDEDED;">
-        <p class="alert alert-link p-0">Anda telah menyelesaikan Ronde 10. Berikut detail :</p>
+        <p class="alert alert-link p-0">Anda telah menyelesaikan Ronde 5. Berikut detail :</p>
         <div class="d-flex flex-row" style="justify-content: space-evenly;">
             <div class="d-flex flex-column">
             <span class="alert alert-primary alert-link p-2">
@@ -41,7 +41,7 @@
                         <i class="fa-solid fa-times"></i>&nbsp;Total Jawaban Salah : {{ player.num_failed }}
                     </span>
                     <p class="alert alert-success alert-link p-2">
-                        <i class="fa-solid fa-dollar-sign"></i>&nbsp;Pendapatan yang anda dapatkan dari Ronde ini
+                        <i class="fa-solid fa-dollar-sign"></i>&nbsp;Pendapatan yang anda dapatkan dari Ronde 10
                         adalah {{ player.pendapatan }}
                     </p>
                 {{ else }}
@@ -52,7 +52,7 @@
                         <i class="fa-solid fa-check"></i>&nbsp;Total Jawaban Salah : {{ player.num_failed }}
                     </span>
                     <p class="alert alert-success alert-link p-2">
-                        <i class="fa-solid fa-dollar-sign"></i>&nbsp;Pendapatan yang anda dapatkan dari Ronde ini
+                        <i class="fa-solid fa-dollar-sign"></i>&nbsp;Pendapatan yang anda dapatkan dari Ronde 10
                         adalah {{ player.pendapatan }} poin
                     </p>
                 {{ endif }}
@@ -64,7 +64,7 @@
                         <i class="fa-solid fa-times"></i>&nbsp;Total Jawaban Salah : {{ player.num_failed }}
                     </span>
                     <p class="alert alert-danger alert-link">
-                        <i class="fa-solid fa-times"></i>&nbsp;Anda tidak mendapatkan Pendapatan pada Soal Aljabar ini.
+                        <i class="fa-solid fa-times"></i>&nbsp;Anda tidak mendapatkan Pendapatan pada Ronde ini.
                     </p>
             {{ endif }}
         </div>

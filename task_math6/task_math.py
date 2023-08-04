@@ -76,3 +76,4 @@ def render_image(puzzle):
     for op in distortions:
         _, img = op.apply(img)
     return img
+

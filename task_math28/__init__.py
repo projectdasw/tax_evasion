@@ -5,7 +5,6 @@ from otree.api import *
 
 from .image_utils import encode_image
 
-
 doc = """
 Real-effort tasks. The different tasks are available in task_matrix.py, task_transcription.py, etc.
 You can delete the ones you don't need. 
@@ -28,7 +27,7 @@ def get_task_module(player):
 
 
 class Constants(BaseConstants):
-    name_in_url = "math28"
+    name_in_url = "task_math28"
     players_per_group = 4
     num_rounds = 1
 
@@ -44,7 +43,8 @@ def creating_session(subsession: Subsession):
     subsession.group_randomly()
     session = subsession.session
     template = dict(
-        retry_delay=1.0, puzzle_delay=0, attempts_per_puzzle=1, attempts_per_puzzle_pilot=10, max_math=None,
+        retry_delay=1.0, puzzle_delay=0, attempts_per_puzzle=1, attempts_per_puzzle_pilot=10, max_iterations=None,
+        max_math=None
     )
     session.params = {}
     for param in template:
@@ -199,7 +199,7 @@ def play_game(player: Player, message: dict):
             if now < current.response_timestamp + params["retry_delay"]:
                 raise RuntimeError("retrying too fast")
 
-            # undo last update of player progress
+            # undo last updation of player progress
             player.num_trials -= 1
             if current.is_correct:
                 player.num_correct -= 1

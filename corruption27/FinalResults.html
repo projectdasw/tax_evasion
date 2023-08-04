@@ -12,7 +12,7 @@
 {{ block title }}
 <div class="d-flex flex-row align-items-center mb-4">
     <span class="d-flex flex-column">
-        <h3>Latihan Lapor Pendapatan</h3>
+        <h3>Lapor Pendapatan</h3>
         <span class="d-flex flex-row align-items-center">
             <span class="badge bg-success fs-5">Hasil Akhir Lapor Pendapatan</span>
             <span class="badge bg-danger fs-5 m-2 mt-0 mb-0">
@@ -37,10 +37,12 @@
             </div>
         {{ elif player.audit == 1 and player.denda == 0 }}
             <div class="alert alert-link alert-success p-2">
+                Anda terkena Audit di ronde ini. <br />
                 Anda melaporkan pendapatan dengan jujur.
             </div>
         {{ elif player.audit == 1 and player.denda > 0 }}
             <div class="alert alert-link alert-danger p-2">
+                Anda terkena Audit di ronde ini. <br />
                 Anda melaporkan Pendapatan yang tidak sesuai dengan aslinya.<br />
                 Anda kena Denda sebesar 50%. Denda Anda sebesar {{ player.denda }}
             </div>

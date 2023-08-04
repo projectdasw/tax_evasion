@@ -1,0 +1,50 @@
+{% block styles  %}
+    <link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/solid.css' %}" rel="stylesheet"/>
+    <link href="{% static 'fontawesome/css/brands.css' %}" rel="stylesheet"/>
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{{ block title }}
+<div class="d-flex flex-row align-items-center mb-4">
+    <span class="d-flex flex-column">
+        <h3>Pembayaran Acak</h3>
+    </span>
+</div>
+{{ endblock }}
+
+{{ block content }}
+    <div class="jumbotron d-flex flex-column justify-content-center">
+        <div class="panel p-3 mb-3" style="border: 1px solid #D8D8D8; text-align: justify;">
+            <div class="panel-body">
+                <h3 class="m-0 mb-2 text-center">
+                    <span class="d-flex flex-row align-items-center">
+                        <span class="badge bg-success fs-5">
+                            Silahkan klik tombol "Acak" untuk mengetahui ronde sebagai basis pembayaran Anda</span>
+                    </span>
+                </h3>
+                <span class="d-flex flex-row fs-4 mt-2">
+                    Ronde : <strong id="acakronde" class="m-2 mt-0 mb-0"></strong>
+                </span>
+                <p class="mt-3">
+                    <button type="button" class="btn btn-outline-primary fs-4" onclick="acak()">Acak</button>
+                    <button id="next_button" class="otree-btn-next btn btn-outline-success fs-4" hidden>
+                        Lanjut<i class="fa-solid fa-hand-point-right m-2 mt-0 mb-0"></i>
+                    </button>
+                    <script>
+                        function acak() {
+                            var angkaAcak = {{ player.round }};
+                            var elemenAngka = document.getElementById("acakronde");
+                            elemenAngka.textContent = angkaAcak;
+                            document.getElementById("next_button").removeAttribute("hidden");
+                        }
+                    </script>
+                </p>
+            </div>
+        </div>
+    </div>
+{{ endblock }}

@@ -5,9 +5,9 @@ import sys
 # in SESSION_CONFIGS, except those that explicitly override it.
 SESSION_CONFIGS = [
     dict(
-        name="task_math1",
+        name="tax_nt",
         display_name="Eksperimen Perilaku Perpajakan Sesi 1 - No Treatment",
-        num_demo_participants=8,
+        num_demo_participants=4,
         app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
                       "task_math1", "no_treatment1", "task_math2", "no_treatment2", "task_math3", "no_treatment3",
                       "task_math4", "no_treatment4", "task_math5", "no_treatment5", "task_math6", "no_treatment6",
@@ -19,15 +19,13 @@ SESSION_CONFIGS = [
                       "task_math22", "no_treatment22", "task_math23", "no_treatment23", "task_math24", "no_treatment24",
                       "task_math25", "no_treatment25", "task_math26", "no_treatment26", "task_math27", "no_treatment27",
                       "task_math28", "no_treatment28", "task_math29", "no_treatment29", "task_math30", "no_treatment30",
-                      "pay_random_apps1", "questionnaire", "payment_info"],
-        task='math',
-        attempts_per_puzzle=8,
+                      "pay_random_apps1", "questionnaire", "payment_info"]
     ),
 
     dict(
-        name="task_math2",
+        name="tax_ct",
         display_name="Eksperimen Perilaku Perpajakan Sesi 2 - Corruption Treatment",
-        num_demo_participants=8,
+        num_demo_participants=4,
         app_sequence=["instruction_experiment2", "task_math_practice", "tax_compliance_practice2", "BeforeExperiment",
                       "task_math1", "corruption1", "task_math2", "corruption2", "task_math3", "corruption3",
                       "task_math4", "corruption4", "task_math5", "corruption5", "task_math6", "corruption6",
@@ -39,15 +37,13 @@ SESSION_CONFIGS = [
                       "task_math22", "corruption22", "task_math23", "corruption23", "task_math24", "corruption24",
                       "task_math25", "corruption25", "task_math26", "corruption26", "task_math27", "corruption27",
                       "task_math28", "corruption28", "task_math29", "corruption29", "task_math30", "corruption30",
-                      "pay_random_apps2", "questionnaire", "payment_info"],
-        task='math',
-        attempts_per_puzzle=1,
+                      "pay_random_apps2", "questionnaire", "payment_info"]
     ),
 
     dict(
-        name="task_math3",
+        name="tax_pf",
         display_name="Eksperimen Perilaku Perpajakan Sesi 3 - Prefilled Form Treatment",
-        num_demo_participants=8,
+        num_demo_participants=4,
         app_sequence=["instruction_experiment3", "task_math_practice", "tax_compliance_practice3", "BeforeExperiment",
                       "task_math1", "prefilled1", "task_math2", "prefilled2", "task_math3", "prefilled3",
                       "task_math4", "prefilled4", "task_math5", "prefilled5", "task_math6", "prefilled6",
@@ -59,15 +55,13 @@ SESSION_CONFIGS = [
                       "task_math22", "prefilled22", "task_math23", "prefilled23", "task_math24", "prefilled24",
                       "task_math25", "prefilled25", "task_math26", "prefilled26", "task_math27", "prefilled27",
                       "task_math28", "prefilled28", "task_math29", "prefilled29", "task_math30", "prefilled30",
-                      "pay_random_apps3", "questionnaire", "payment_info"],
-        task='math',
-        attempts_per_puzzle=1,
+                      "pay_random_apps3", "questionnaire", "payment_info"]
     ),
 
     dict(
-        name="task_math4",
+        name="tax_ctpf",
         display_name="Eksperimen Perilaku Perpajakan Sesi 4 - Prefilled Form + Corruption Treatment",
-        num_demo_participants=8,
+        num_demo_participants=4,
         app_sequence=["instruction_experiment4", "task_math_practice", "tax_compliance_practice4", "BeforeExperiment",
                       "task_math1", "prefilled_corruption1", "task_math2", "prefilled_corruption2", "task_math3",
                       "prefilled_corruption3", "task_math4", "prefilled_corruption4", "task_math5",
@@ -84,9 +78,7 @@ SESSION_CONFIGS = [
                       "prefilled_corruption25", "task_math26", "prefilled_corruption26", "task_math27",
                       "prefilled_corruption27", "task_math28", "prefilled_corruption28", "task_math29",
                       "prefilled_corruption29", "task_math30", "prefilled_corruption30",
-                      "pay_random_apps4", "questionnaire", "payment_info"],
-        task='math',
-        attempts_per_puzzle=1,
+                      "pay_random_apps4", "questionnaire", "payment_info"]
     )
 ]
 # the session config can be accessed from methods in your apps as self.session.config,
@@ -156,7 +148,7 @@ ROOMS = [
 ADMIN_USERNAME = "admin"
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get("OTREE_ADMIN_PASSWORD")
-DEBUG = False
+DEBUG = True
 AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 
 DEMO_PAGE_TITLE = "Eksperimen Perilaku Perpajakan"

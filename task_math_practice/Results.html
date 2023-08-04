@@ -14,7 +14,7 @@
     <span class="d-flex flex-column">
         <h3>Hasil Latihan Soal Aljabar</h3>
         <span class="d-flex flex-row align-items-center">
-            <span class="badge bg-success fs-5">Latihan telah selesai</span>
+            <span class="badge bg-success fs-5">Ronde Latihan telah selesai</span>
         </span>
     </span>
 </div>
@@ -26,7 +26,7 @@
         }
     </style>
     <div class="jumbotron" style="border-radius: 10px; padding: 20px; background-color: #EDEDED;">
-        <p class="alert alert-link p-0">Anda telah menyelesaikan Latihan Soal Aljabar. Berikut detail :</p>
+        <p class="alert alert-link p-0">Anda telah menyelesaikan Ronde Latihan. Berikut detail :</p>
         <div class="d-flex flex-row" style="justify-content: space-evenly;">
             <div class="d-flex flex-column">
             <span class="alert alert-primary alert-link p-2">
@@ -41,7 +41,7 @@
                         <i class="fa-solid fa-times"></i>&nbsp;Total Jawaban Salah : {{ player.num_failed }}
                     </span>
                     <p class="alert alert-success alert-link p-2">
-                        <i class="fa-solid fa-dollar-sign"></i>&nbsp;Pendapatan yang anda dapatkan dari Ronde ini
+                        <i class="fa-solid fa-dollar-sign"></i>&nbsp;Pendapatan yang anda dapatkan dari Ronde Latihan
                         adalah {{ player.lat_pendapatan }}
                     </p>
                 {{ else }}
@@ -52,7 +52,7 @@
                         <i class="fa-solid fa-check"></i>&nbsp;Total Jawaban Salah : {{ player.num_failed }}
                     </span>
                     <p class="alert alert-success alert-link p-2">
-                        <i class="fa-solid fa-dollar-sign"></i>&nbsp;Pendapatan yang anda dapatkan dari Ronde ini
+                        <i class="fa-solid fa-dollar-sign"></i>&nbsp;Pendapatan yang anda dapatkan dari Ronde Latihan
                         adalah {{ player.lat_pendapatan }} poin
                     </p>
                 {{ endif }}
@@ -64,7 +64,7 @@
                         <i class="fa-solid fa-times"></i>&nbsp;Total Jawaban Salah : {{ player.num_failed }}
                     </span>
                     <p class="alert alert-danger alert-link">
-                        <i class="fa-solid fa-times"></i>&nbsp;Anda tidak mendapatkan Pendapatan pada Soal Aljabar ini.
+                        <i class="fa-solid fa-times"></i>&nbsp;Anda tidak mendapatkan Pendapatan pada Ronde Latihan ini.
                     </p>
             {{ endif }}
         </div>
@@ -77,10 +77,12 @@
                     </span>
             </div>
         </div>
-        <p class="alert alert-warning alert-link p-2 text-center">
-            <i class="fa-solid fa-warning"></i>
-            Silahkan catat pendapatan Anda untuk mempermudah Pelaporan Pajak
-        </p>
+        {{ if player.round_number == Constants.num_rounds }}
+            <p class="alert alert-warning alert-link p-2 text-center">
+                <i class="fa-solid fa-warning"></i>
+                Silahkan catat pendapatan Anda untuk mempermudah Pelaporan Pajak
+            </p>
+        {{ endif }}
         <div class="d-flex flex-row align-items-center">
             <span class="alert alert-info alert-link p-2 m-2 mb-0 mt-0">
                 Otomatis akan pindah halaman dalam waktu:

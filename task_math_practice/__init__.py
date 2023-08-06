@@ -243,7 +243,7 @@ class WaitPlayer(WaitPage):
 
 
 class Game(Page):
-    timeout_seconds = 65
+    timeout_seconds = 60
     live_method = play_game
 
     @staticmethod

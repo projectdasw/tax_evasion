@@ -43,7 +43,7 @@ SESSION_CONFIGS = [
     dict(
         name="tax_pf",
         display_name="Eksperimen Perilaku Perpajakan Sesi 3 - Prefilled Form Treatment",
-        num_demo_participants=8,
+        num_demo_participants=16,
         app_sequence=["instruction_experiment3", "task_math_practice", "tax_compliance_practice3", "BeforeExperiment",
                       "task_math1", "prefilled1", "task_math2", "prefilled2", "task_math3", "prefilled3",
                       "task_math4", "prefilled4", "task_math5", "prefilled5", "task_math6", "prefilled6",

@@ -25,7 +25,7 @@ SESSION_CONFIGS = [
     dict(
         name="tax_ct",
         display_name="Eksperimen Perilaku Perpajakan Sesi 2 - Corruption Treatment",
-        num_demo_participants=8,
+        num_demo_participants=60,
         app_sequence=["instruction_experiment2", "task_math_practice", "tax_compliance_practice2", "BeforeExperiment",
                       "task_math1", "corruption1", "task_math2", "corruption2", "task_math3", "corruption3",
                       "task_math4", "corruption4", "task_math5", "corruption5", "task_math6", "corruption6",

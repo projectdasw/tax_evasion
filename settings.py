@@ -7,7 +7,7 @@ SESSION_CONFIGS = [
     dict(
         name="tax_nt",
         display_name="Eksperimen Perilaku Perpajakan Sesi 1 - No Treatment",
-        num_demo_participants=8,
+        num_demo_participants=60,
         app_sequence=["instruction_experiment1", "task_math_practice", "tax_compliance_practice1", "BeforeExperiment",
                       "task_math1", "no_treatment1", "task_math2", "no_treatment2", "task_math3", "no_treatment3",
                       "task_math4", "no_treatment4", "task_math5", "no_treatment5", "task_math6", "no_treatment6",
@@ -25,7 +25,7 @@ SESSION_CONFIGS = [
     dict(
         name="tax_ct",
         display_name="Eksperimen Perilaku Perpajakan Sesi 2 - Corruption Treatment",
-        num_demo_participants=8,
+        num_demo_participants=60,
         app_sequence=["instruction_experiment2", "task_math_practice", "tax_compliance_practice2", "BeforeExperiment",
                       "task_math1", "corruption1", "task_math2", "corruption2", "task_math3", "corruption3",
                       "task_math4", "corruption4", "task_math5", "corruption5", "task_math6", "corruption6",
@@ -43,7 +43,7 @@ SESSION_CONFIGS = [
     dict(
         name="tax_pf",
         display_name="Eksperimen Perilaku Perpajakan Sesi 3 - Prefilled Form Treatment",
-        num_demo_participants=8,
+        num_demo_participants=60,
         app_sequence=["instruction_experiment3", "task_math_practice", "tax_compliance_practice3", "BeforeExperiment",
                       "task_math1", "prefilled1", "task_math2", "prefilled2", "task_math3", "prefilled3",
                       "task_math4", "prefilled4", "task_math5", "prefilled5", "task_math6", "prefilled6",
@@ -61,7 +61,7 @@ SESSION_CONFIGS = [
     dict(
         name="tax_ctpf",
         display_name="Eksperimen Perilaku Perpajakan Sesi 4 - Prefilled Form + Corruption Treatment",
-        num_demo_participants=8,
+        num_demo_participants=60,
         app_sequence=["instruction_experiment4", "task_math_practice", "tax_compliance_practice4", "BeforeExperiment",
                       "task_math1", "prefilled_corruption1", "task_math2", "prefilled_corruption2", "task_math3",
                       "prefilled_corruption3", "task_math4", "prefilled_corruption4", "task_math5",

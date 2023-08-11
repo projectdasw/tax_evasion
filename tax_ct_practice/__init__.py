@@ -282,8 +282,11 @@ def set_jumlahpajak(group):
     for player in players:
         besar_korupsi = player.lat_bebanpajak - (player.lat_bebanpajak * (group.corrupt / 100))
         player.hasil_korupsi = besar_korupsi
-        group.lat_bagipajak = (group.lat_totalpajak * (group.return_tax / 100) - player.hasil_korupsi) /\
-                              Constants.players_per_group
+        if group.corrupt > 0:
+            group.lat_bagipajak = ((group.lat_totalpajak - (group.lat_totalpajak * (group.corrupt / 100))) *
+                                   (group.return_tax / 100)) / Constants.players_per_group
+        else:
+            group.lat_bagipajak = (group.lat_totalpajak * (group.return_tax / 100)) / Constants.players_per_group
 
 
 # PAGES

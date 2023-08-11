@@ -284,13 +284,16 @@ def play_game(player: Player, message: dict):
 # FUNCTIONS
 def set_jumlahpajak(group):
     players = group.get_players()
-    total_pajak = [p.lat_bebanpajak for p in players]
-    group.lat_totalpajak = sum(total_pajak)
+    total_pajak = [p.bebanpajak for p in players]
+    group.totalpajak = sum(total_pajak)
     for player in players:
-        besar_korupsi = player.lat_bebanpajak - (player.lat_bebanpajak * (group.corrupt / 100))
+        besar_korupsi = player.bebanpajak - (player.bebanpajak * (group.corrupt / 100))
         player.hasil_korupsi = besar_korupsi
-        group.lat_bagipajak = (group.lat_totalpajak * (group.return_tax / 100) - player.hasil_korupsi) / \
-                              Constants.players_per_group
+        if group.corrupt > 0:
+            group.bagipajak = ((group.totalpajak - (group.totalpajak * (group.corrupt / 100))) *
+                               (group.return_tax / 100)) / Constants.players_per_group
+        else:
+            group.bagipajak = (group.totalpajak * (group.return_tax / 100)) / Constants.players_per_group
 
 
 # PAGES

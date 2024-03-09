@@ -1,4 +1,5 @@
-# Corruption, Confirmation and Tax Evasion: An Experiment Study
+# Tax Evasion
+Corruption, Confirmation and Tax Evasion: An Experiment Study
 
 Corruption, Confirmation and Tax Evasion: An Experiment Study merupakan sebuah eksperimen dari Universitas Gajah Mada sebagai sarana penelitian guna mengetahui perilaku tingkat kepatuhan para pelaku Wajib Lapor Pajak. Penelitian ini menggunakan responden dari mahasiswa lingkungan Universitas Gajah Mada yang mengacu pada perilaku Wajib Lapor Pajak dan keputusan tingkat kepatuhan perilaku dalam melaporkan Pajak. Responden akan diberlakukan Audit guna mengetahui kecurangan dalam Wajib Lapor Pajak.
 
